@@ -1,0 +1,41 @@
+<%- include("_header") %>
+<div class="header">
+  <p>ShareLog</p>
+</div>
+
+<div class="show">
+  <div class="bb-posi">
+    <button><a href="/" class="back-btn">Back</a></button>
+  </div>
+
+  <div class="blog-detail">
+    <h1 class="show-title"><%= blog.title %></h1>
+    <h6 class="show-time"><%= blog.timeCreated.toLocaleDateString() %></h6>
+    <div class="author-info">
+      <p class="show-auth">@<%= blog.author %></p>
+    </div>
+
+    <div class="btns">
+      <a href="edit/<%= blog.id %>" class="btn edit-btn">Edit</a>
+
+      <form action="/blogs/<%= blog.id %>?_method=DELETE" method="POST">
+        <button class="btn del-btn">Delete</button>
+      </form>
+    </div>
+
+    <div class="show-img">
+      <img src="/uploads/imgs/<%= blog.img %>" alt="show-img" />
+    </div>
+
+    <div class="show-place">
+      <p>My favorite place is ...</p>
+      <p><%- blog.placeName %></p>
+    </div>
+    <div class="show-country">
+      <p>In</p>
+      <p><%- blog.country %></p>
+    </div>
+    <p class="show-body"><%- blog.body %></p>
+  </div>
+</div>
+<%- include("_footer") %>
