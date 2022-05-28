@@ -30,7 +30,7 @@ router.get("/:slug", async (req, res) => {
   if (blog) {
     res.render("show", { blog: blog });
   } else {
-    res.redirect("/");
+    res.redirect("/blogs");
   }
 });
 
@@ -48,7 +48,7 @@ router.post("/", upload.single("img"), async (req, res) => {
   try {
     blog = await blog.save();
 
-    res.redirect(`blogs/${blog.slug}`);
+    res.redirect(`/blogs/${blog.slug}`);
   } catch (error) {
     console.log(error);
   }
@@ -64,6 +64,9 @@ router.put("/:id", async (req, res) => {
   req.blog = await Blog.findById(req.params.id);
   let blog = req.blog;
   blog.title = req.body.title;
+  blog.author = req.body.author;
+  blog.placeName = req.body.placeName;
+  blog.country = req.body.country;
   blog.body = req.body.body;
 
   try {
@@ -78,7 +81,7 @@ router.put("/:id", async (req, res) => {
 // delete
 router.delete("/:id", async (req, res) => {
   await Blog.findByIdAndDelete(req.params.id);
-  res.redirect("/");
+  res.redirect("/blogs");
 });
 
 module.exports = router;
