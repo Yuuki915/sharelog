@@ -7,7 +7,7 @@ const Blog = require("./models/Blog");
 const app = express();
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/sharelog",
+  process.env.MONGODB_URI || "mongodb://localhost:27017/0527-mid-proj",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
