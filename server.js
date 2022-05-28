@@ -20,6 +20,7 @@ app.use(methodOverride("_method"));
 
 app.get("/", async (req, res) => {
   let blogs = await Blog.find().sort({ timeCreated: "desc" });
+
   res.render("index", { blogs: blogs });
 });
 
@@ -28,3 +29,5 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/blogs", blogRouter);
 
 app.listen(process.env.PORT || 4000);
+
+// tanomu...
