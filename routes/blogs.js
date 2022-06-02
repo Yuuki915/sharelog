@@ -21,14 +21,14 @@ const upload = multer({
 });
 
 router.get("/new", (req, res) => {
-  res.render("newBlog");
+  res.render("blogs/newBlog");
 });
 
 router.get("/:slug", async (req, res) => {
   let blog = await Blog.findOne({ slug: req.params.slug });
 
   if (blog) {
-    res.render("show", { blog: blog });
+    res.render("blogs/show", { blog: blog });
   } else {
     res.redirect("/blogs");
   }
@@ -57,7 +57,7 @@ router.post("/", upload.single("img"), async (req, res) => {
 // edit
 router.get("/edit/:id", async (req, res) => {
   let blog = await Blog.findById(req.params.id);
-  res.render("edit", { blog: blog });
+  res.render("blogs/edit", { blog: blog });
 });
 
 router.put("/:id", async (req, res) => {
@@ -79,7 +79,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // delete
-router.delete("/:id", async (req, res) => {
+router.delete("/blogs/:id", async (req, res) => {
   await Blog.findByIdAndDelete(req.params.id);
   res.redirect("/blogs");
 });

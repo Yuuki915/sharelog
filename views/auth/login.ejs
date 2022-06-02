@@ -1,0 +1,29 @@
+<%- include("../partials/_header") %>
+
+<div>
+  <h1>Login</h1>
+
+  <form action="/auth/login" method="post">
+    <div class="input-container">
+      <label for="username" class="label">Username</label>
+      <input type="text" name="username" required />
+    </div>
+
+    <div class="input-container">
+      <label for="email" class="label">Email</label>
+      <input type="text" name="email" required />
+    </div>
+
+    <div class="input-container">
+      <label for="password" class="label">Password</label>
+      <input type="text" name="password" required />
+    </div>
+
+    <div class="input-container">
+      <a href="/" class="btn can-btn">Cancel</a>
+      <button type="submit" class="btn save-btn">Login</button>
+    </div>
+  </form>
+</div>
+
+<%- include("../partials/_footer") %>
