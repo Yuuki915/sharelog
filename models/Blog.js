@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const slug = require("mongoose-slug-generator");
+const passportLocalMongoose = require("passport-local-mongoose");
 
 mongoose.plugin(slug);
 
@@ -38,5 +39,7 @@ const blogSchema = new mongoose.Schema({
     slug_padding_size: 2,
   },
 });
+
+blogSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("Blog", blogSchema);

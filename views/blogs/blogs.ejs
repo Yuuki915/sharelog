@@ -2,11 +2,13 @@
 
 <div class="siteimg"></div>
 <p class="site-title">ShareLog</p>
-
+<a href="/auth/logout" class="btn">Logout</a>
 <p class="subtitle">Share the place you like</p>
 
 <div class="btn-container">
-  <button class="btn add-btn"><a href="blogs/new">Add Place</a></button>
+  <button class="btn add-btn">
+    <a href="/blogs/new">Add Place</a>
+  </button>
 </div>
 
 <% if(blogs.length < 1) { %>
@@ -26,9 +28,6 @@
         </div>
 
         <div class="box-bottom">
-          <!-- <div class="box-img">
-            <img src="/uploads/<%= blog.img %>" alt="" />
-          </div> -->
           <div>
             <div class="blog-author">@<%= blog.author %></div>
             <div class="blog-created-time">
