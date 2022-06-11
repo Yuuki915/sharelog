@@ -63,7 +63,7 @@ router.get("/blogs/:slug", async (req, res) => {
 
 // new post
 router.post("/blogs", upload.single("img"), async (req, res) => {
-  let blog = new Blog({
+  const blog = new Blog({
     title: req.body.title,
     author: req.body.author,
     body: req.body.body,
@@ -72,11 +72,13 @@ router.post("/blogs", upload.single("img"), async (req, res) => {
     country: req.body.country,
   });
 
+  
   try {
-    blog = await blog.save();
-    res.redirect(`/blogs/${blog.slug}`);
+    const newBlog = await blog.save();
+    res.redirect(`/blogs/${newBlog.slug}`);
   } catch (error) {
     console.log(error);
+    res.send(error)
   }
 });
 

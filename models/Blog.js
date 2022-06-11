@@ -40,6 +40,6 @@ const blogSchema = new mongoose.Schema({
   },
 });
 
-blogSchema.plugin(passportLocalMongoose);
+blogSchema.plugin(passportLocalMongoose, { usernameField : 'username' });
 
 module.exports = mongoose.model("Blog", blogSchema);
