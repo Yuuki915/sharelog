@@ -72,12 +72,14 @@ router.post("/blogs", upload.single("img"), async (req, res) => {
     country: req.body.country,
   });
 
+  
   try {
     const newBlog = await blog.save();
     res.redirect(`/blogs/${newBlog.slug}`);
   } catch (error) {
     console.log(error);
-    res.send(error);
+    res.send(error)
+
   }
 });
 
