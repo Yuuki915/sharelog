@@ -79,6 +79,7 @@ router.post("/blogs", upload.single("img"), async (req, res) => {
   } catch (error) {
     console.log(error);
     res.send(error)
+
   }
 });
 
