@@ -66,6 +66,12 @@ a {
   display: inline-block;
 }
 
+.logout-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 .save-btn,
 .can-btn,
 .edit-btn,
