@@ -7,6 +7,7 @@
 <div class="show">
   <div class="bb-posi">
     <button><a href="/blogs" class="back-btn">Back</a></button>
+    <button><a href="/blogs/new" class="addmore-btn">Add more</a></button>
   </div>
 
   <div class="blog-detail">
@@ -14,14 +15,6 @@
     <h6 class="show-time"><%= blog.timeCreated.toLocaleDateString() %></h6>
     <div class="author-info">
       <p class="show-auth">@<%= blog.author %></p>
-    </div>
-
-    <div class="btns">
-      <a href="edit/<%= blog.id %>" class="btn edit-btn">Edit</a>
-
-      <form action="/blogs/<%= blog.id %>?_method=DELETE" method="POST">
-        <button class="btn del-btn">Delete</button>
-      </form>
     </div>
 
     <div class="show-img">
@@ -37,6 +30,14 @@
       <p><%- blog.country %></p>
     </div>
     <p class="show-body"><%- blog.body %></p>
+  </div>
+
+  <div class="btns">
+    <form action="/blogs/<%= blog.id %>?_method=DELETE" method="POST">
+      <button class="btn del-btn">Delete</button>
+    </form>
+
+    <a href="edit/<%= blog.id %>" class="btn edit-btn">Edit</a>
   </div>
 </div>
 
